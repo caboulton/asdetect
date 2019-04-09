@@ -55,19 +55,24 @@ Using both detection objects we can determine if a shift has occurred using wher
 ``` r
 print(where_as(detect1$detect, dt=0.5)) #finds the minima or maxima of the detection time series above the default 0.7 threshold
 #> $as_pos
-#> [1] 774.5
+#> [1] 817.5
 #> 
 #> $dt_val
-#> [1] 0.7009063
+#> [1] 0.9954683
 print(where_as(detect2$detect, dt=0.5)) #warning message displayed if none can be found
 #> [1] "Threshold not detected, maximum returned instead"
 #> $as_pos
-#> [1] 829
+#> [1] 298
 #> 
 #> $dt_val
-#> [1] -0.09516616
+#> [1] 0.1616314
 ```
 
 It is important to note that depending o whether or not 'dt' is specified, depends on how inputs are used in follow-on functions. Information is provided in the individual help files of each function.
 
 asdetect also includes shift\_type() which determines whether a detected abrupt shift is a true shift or whether it is a flat section of an otherwise increasing/decreasing time series. Again, full information is provided in the help file.
+
+References
+----------
+
+Boulton C. A. & Lenton T. M. (2019) 'A method for detecting abrupt shifts in time series' (in prep.)

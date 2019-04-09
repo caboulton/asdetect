@@ -56,3 +56,7 @@ print(where_as(detect2$detect, dt=0.5)) #warning message displayed if none can b
 It is important to note that depending o whether or not 'dt' is specified, depends on how inputs are used in follow-on functions. Information is provided in the individual help files of each function.
 
 asdetect also includes shift_type() which determines whether a detected abrupt shift is a true shift or whether it is a flat section of an otherwise increasing/decreasing time series. Again, full information is provided in the help file.
+
+## References
+
+Boulton C. A. & Lenton T. M. (2019) 'A method for detecting abrupt shifts in time series' (in prep.)
