@@ -1,0 +1,10 @@
+Package: asdetect
+Type: Package
+Title: Abrupt shift detection
+Version: 0.1.0
+Authors@R: person("Chris","Boulton",email="c.a.boulton@exeter.ac.uk", role=c("aut","cre"))
+Maintainer: Chris A. Boulton <c.a.boulton@exeter.ac.uk>
+Description: This package contains a number of functions to detect aburpt shifts in time series by looking for large changes in gradient over a short amount of time.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true

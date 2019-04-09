@@ -1,0 +1,58 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+library('asdetect')
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# asdetect
+
+asdetect is used to detect abrupt shifts in time series, by searching for large changes in gradient over a small time 
+
+## Installation
+
+You can install asdetect using:
+
+``` {r, eval=F}
+#install.packages('devtools')
+devtools::install_github("caboulton/asdetect")
+```
+
+## Usage
+
+The below example shows how to the functions work on an example time series, using the as_detect() function:
+
+```{r}
+eg1 <- tip_eg() #create a time series with an abrupt shift in it
+plot(eg1, type="l", xlab='Time', ylab='X')
+detect1 <- as_detect(eg1$x, dt=0.5) #run the detection algorithm
+plot(detect1, type="l", xlab='Time', ylab='Detection Value', ylim=c(-1,1))
+```
+
+A time series of white noise will have no detection of an abrupt shift:
+
+```{r}
+eg2 <- white_noise_eg() #create a time series of white noise
+plot(eg2, type="l", xlab='Time', ylab='X')
+detect2 <- as_detect(eg2$x, dt=0.5) #run the detection algorithm
+plot(detect2, type="l", xlab='Time', ylab='Detection Value', ylim=c(-1,1))
+```
+
+Using both detection objects we can determine if a shift has occurred using where_as():
+
+```{r}
+print(where_as(detect1$detect, dt=0.5)) #finds the minima or maxima of the detection time series above the default 0.7 threshold
+print(where_as(detect2$detect, dt=0.5)) #warning message displayed if none can be found
+```
+
+It is important to note that depending o whether or not 'dt' is specified, depends on how inputs are used in follow-on functions. Information is provided in the individual help files of each function.
+
+asdetect also includes shift_type() which determines whether a detected abrupt shift is a true shift or whether it is a flat section of an otherwise increasing/decreasing time series. Again, full information is provided in the help file.
